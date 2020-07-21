@@ -21,6 +21,14 @@ node{
 		sh "${mvncmd} compile"
     		
     	}
+	stage('Mvn Package'){
+    		def mvnhome = tool name: 'maven-1', type: 'maven'
+		def mvncmd = "${mvnhome}/bin/mvn"
+		sh "${mvncmd} package"
+    		
+    	}
+
+
 
 
 }
