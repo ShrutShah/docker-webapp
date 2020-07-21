@@ -28,7 +28,15 @@ node{
     		
     	}
     stage('Build Docker image'){
-	                sh "sudo docker build . -t shrutshah/mywebapp:v1 "
+              sh "docker build . -t shrutshah/mywebapp:v1"
+
+        }
+    stage('Push Docker image'){
+            withCredentials([string(credentialsId: 'dockhubp', variable: 'dockerhubpassword')]) {
+                sh "docker login -u shrutshah -p ${dockerhubpassword}"
+                
+            }
+              sh "docker push shrutshah/mywebapp:v1"
 
         }
 
@@ -36,3 +44,4 @@ node{
 
 
 }
+	
