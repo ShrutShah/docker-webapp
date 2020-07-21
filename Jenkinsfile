@@ -39,6 +39,10 @@ node{
               sh "sudo docker push shrutshah/mywebapp:v1"
 
         }
+    stage('Deploy'){
+        sh "sudo docker run -p 8081:8080 -d --name mywebapp shrutshah/mywebapp:v1"
+    }
+
 
 
 
