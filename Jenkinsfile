@@ -28,7 +28,7 @@ node{
     		
     	}
     stage('Build Docker image'){
-              sh 'docker build -t shrutshah/mywebapp:v1 .'
+              sh ' sudo docker build -t shrutshah/mywebapp:v1 .'
 
         }
 
